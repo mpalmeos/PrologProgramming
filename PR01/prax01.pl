@@ -13,6 +13,8 @@ lind(kana).
 lind(vutt).
 lind(rasvatihane).
 lind(luik).
+lind(hani).
+lind(part).
 
 lind(peoleo, kollane).
 lind(peoleo, must).
@@ -28,7 +30,7 @@ lind(luik, must).
 lendab(X):-
 	lind(X).
 
-surelik(X) :- 
+surelik(X):- 
 	inimene(X).
 
 inimene_jumal(X):-
@@ -40,5 +42,6 @@ inimene_jumal(_):-
 	
 lind_lendab(X):-
 	write(X), (lendab(X), write(' lendab.')).
+
 lind_lendab(_):-
 	write(' pole lind'), nl, !, fail.
