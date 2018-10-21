@@ -1,23 +1,57 @@
-%---Teadmusbaas---
-married(anne,vello).
-married(jaana, mart).
+female(milde).
+female(ilona).
+female(maire).
+female(helena).
+female(maie).
+female(tiiu).
+female(asta).
+female(helme).
+female(olga).
+female(nastja).
+female(varja).
+female(zhanna).
+female(ninel).
 
-mother(hannes, jaana).
-mother(anne, jaana).
-mother(evelin,anne).
-mother(martin, anne).
+male(jaan).
+male(reiljan).
+male(tarmo).
+male(ivar).
+male(olav).
+male(oliver).
+male(romet).
+male(rasmus).
+male(kalev).
+male(juri).
+male(andrei).
 
-female(anne).
-female(evelin).
-female(jaana).
+married(maire, jaan).
+married(helme, reiljan).
+married(tiiu, olav).
+married(olga, kalev).
+married(helena, rasmus).
+married(ninel, juri).
+married(zhanna, andrei).
 
-male(vello).
-male(martin).
-male(mart).
-male(hannes).
+mother(milde, ilona).
+mother(ilona, maire).
+mother(helena, olga).
+mother(maie, olga).
+mother(maire, helme).
+mother(tiiu, helme).
+mother(asta, helme).
+mother(kalev, helme).
+mother(oliver, helena).
+mother(romet, helena).
+mother(tarmo, tiiu).
+mother(ivar, tiiu).
+mother(nastja, zhanna).
+mother(varja, zhanna).
+mother(olga, ninel).
+mother(andrei, ninel).
 
 parent(Laps, Vanem):-
-	mother(Laps, Vanem); father(Laps, Vanem).
+	mother(Laps, Vanem); 
+	father(Laps, Vanem).
 
 father(Laps, Isa):-
 	mother(Laps, Ema),
@@ -50,3 +84,13 @@ grandfather(Laps, GF):-
 grandmother(Laps, GM):-
 	parent(Laps, Vanem),
 	mother(Vanem, GM).
+	
+greatgrandfather(Laps, GGF):-
+	parent(Laps, F_1),
+	parent(F_1, F_2),
+	father(F_2, GGF).
+
+greatgrandmother(Laps, GGM):-
+	parent(Laps, M_1),
+	parent(M_1, M_2),
+	mother(M_2, GGM).
