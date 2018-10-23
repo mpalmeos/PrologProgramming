@@ -99,3 +99,12 @@ female_ancestor(Child, Parent):-
 female_ancestor(Child, Parent):-
 	parent(Child, Mother),
 	female_ancestor(Mother, Parent).
+
+ancestor1(Child, Parent, N):-
+	parent(Child, Parent),
+	N is 1.
+
+ancestor1(Child, Parent, N):-
+	parent(Child, P),
+	ancestor1(P, Parent, Level),
+	N is Level + 1.
