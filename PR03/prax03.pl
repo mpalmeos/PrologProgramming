@@ -108,3 +108,11 @@ ancestor1(Child, Parent, N):-
 	parent(Child, P),
 	ancestor1(P, Parent, Level),
 	N is Level + 1.
+
+ancestor2(Child, Parent, N):-
+	ancestor(Child, Parent),
+	child_count(Parent, N).
+
+child_count(Parent, N):-
+	aggregate_all(count, parent(_,Parent), Count),
+	N<Count.
